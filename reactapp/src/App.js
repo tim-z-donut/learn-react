@@ -22,7 +22,7 @@ function App() {
         >
           Learn React
         </a>
-        <Counter></Counter>
+        {/* <Counter></Counter> */}
       </header>
     </div>
   );
@@ -33,9 +33,10 @@ export default App;
 
 
 
-function Counter() {
+export function Counter({init}) {
   // Define a function that updates a constant variable
-  const [count, setCount] =useState(0);
+  var init = parseInt(init || 0)
+  const [count, setCount] =useState(init);
   // use Effect to clear a value after use to prevent glitching artifacts
   useEffect(function() {
     
@@ -51,9 +52,11 @@ function Counter() {
     }
   })
   return (
-    <div className="Counter">
+    <div className="Appl">
+    <header className="App-header">
     <h1>Hi there: count is </h1>
     <p>{count}</p>
-  </div>
+    </header>
+    </div>
   )
 }
