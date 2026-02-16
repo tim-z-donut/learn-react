@@ -38,7 +38,10 @@ export function Counter({init}) {
   var init = parseInt(init || 0)
   const [count, setCount] =useState(init);
   // use Effect to clear a value after use to prevent glitching artifacts
-  useEffect(function() {
+    function incr() {
+	    setCount((count+100));
+    }
+    useEffect(function() {
     
     // main logic
     var timer = setInterval(function() {
@@ -56,6 +59,7 @@ export function Counter({init}) {
     <header className="App-header">
     <h1>Hi there: count is </h1>
     <p>{count}</p>
+	  <button onClick={incr}>count + 100 < /button>
     </header>
     </div>
   )
